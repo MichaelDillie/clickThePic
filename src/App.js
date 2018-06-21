@@ -12,6 +12,10 @@ class App extends Component {
     pictures
   }  
 
+  imageClicked = id => {
+    console.log(id);
+  }
+
   render() {
     return (
       <div className="App">
@@ -19,8 +23,11 @@ class App extends Component {
         <Header />
         {this.state.pictures.map(picture => (
           <ImageCard
+            imageClicked={this.imageClicked}
             key={picture.id}
+            id={picture.id}
             image={picture.image}
+            clicked={picture.clicked}
           />
         ))}
       </div>
