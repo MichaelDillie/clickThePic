@@ -22,6 +22,29 @@
   font-size: large;
 }
 
+.navbar {
+  height: 60px;
+  color: beige;
+}
+
+.test {
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.header-wrapper {
+  background: url("/assets/images/luana-azevedo-578957-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 150px 50px;
+  color: antiquewhite;
+}
+.start-game-header-text {
+  text-align: center;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
