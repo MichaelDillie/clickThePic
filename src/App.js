@@ -10,6 +10,7 @@ class App extends Component {
 
   state = {
     pictureObj: pictures,
+    clickedPicsArr: [],
     score: 0,
     highScore: 0,
     message: "Click a Pic to Start"
@@ -19,23 +20,28 @@ class App extends Component {
     console.log(this.state.pictureObj);
   }
 
-  imageClicked = (id, clicked) => {
-    console.log("CLICKED");
-    console.log(this.state.pictureObj);
-    if(clicked) {
+  // 1) id - The id of the image clicked
+  imageClicked = (id) => {
+
+    // Condition that checks if the imgage clicked has a property clicked that is true or false
+    if(this.state.clickedPicsArr.includes(id)) {
       if(this.state.score > this.state.highScore) {
         this.setState({highScore: this.state.score});
       }
       this.setState({message: "Wrong Guess"});
       this.shufflePics(this.state.pictureObj);
       this.setState({score: 0});
+      this.setState({clickedPicsArr: []});
     } else {
       this.setState({score: this.state.score + 1});
       this.setState({message: "Correct Keep Going"});
       this.shufflePics(this.state.pictureObj);
+      console.log(id);
+      this.state.clickedPicsArr.push(id);
     }
   }
 
+  // ShufflePics will shuffle the pictures object
   shufflePics = arrayOfPicObjs => {
     for (let i = arrayOfPicObjs.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
