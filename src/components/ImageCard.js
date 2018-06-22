@@ -6,7 +6,7 @@ const ImageCard = props => {
       role="img"
       aria-label="click item"
       className="click-that-image" 
-      style={{backgroundImage: `url(${props.image})`}} 
+      style={{backgroundImage: `url(${props.image})`}}
       onClick={() => props.imageClicked(props.id, props.clicked)}>
     </div>
   );

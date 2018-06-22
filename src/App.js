@@ -11,28 +11,37 @@ class App extends Component {
   state = {
     pictureObj: pictures,
     score: 0,
-    highScore: 0
+    highScore: 0,
+    message: "Click a Pic to Start"
+  }
+
+  componentDidMount() {
+    console.log(this.state.pictureObj);
   }
 
   imageClicked = (id, clicked) => {
+    console.log("CLICKED");
+    console.log(this.state.pictureObj);
     if(clicked) {
-      console.log("Loss");
       if(this.state.score > this.state.highScore) {
         this.setState({highScore: this.state.score});
       }
+      this.setState({message: "Wrong Guess"});
+      this.shufflePics(this.state.pictureObj);
+      this.setState({score: 0});
     } else {
-      console.log("Good, Now set clicked to true");
-      this.setState({ score: this.state.score + 1});
+      this.setState({score: this.state.score + 1});
+      this.setState({message: "Correct Keep Going"});
       this.shufflePics(this.state.pictureObj);
     }
   }
 
-  shufflePics = arr => {
-    for (let i = arr.length - 1; i > 0; i--) {
+  shufflePics = arrayOfPicObjs => {
+    for (let i = arrayOfPicObjs.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
-      let temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
+      let temp = arrayOfPicObjs[i];
+      arrayOfPicObjs[i] = arrayOfPicObjs[j];
+      arrayOfPicObjs[j] = temp;
     }    
   };
 
@@ -41,6 +50,7 @@ class App extends Component {
       <div className="App">
         <NavBar 
           score={this.state.score}
+          message={this.state.message}
           highScore={this.state.highScore}
         />
         <Header />
