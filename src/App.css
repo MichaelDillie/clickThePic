@@ -33,10 +33,22 @@
   display: inline-block;
   background-size: cover;
   background-position: center;
+  border: 10px solid;
   margin: 15px;
   cursor: pointer;
+  transition: all .2s ease-in-out;
   box-shadow: 14px 16px 46px 0px rgba(0,0,0,0.75)
 }
+.click-that-image:hover { 
+  transform: scale(1.1);
+}
+
+/* .click-that-image:active {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+} */
 
 .header-wrapper {
   background: url("/assets/images/luana-azevedo-578957-unsplash.jpg");
@@ -55,3 +67,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* @keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+} */

@@ -25,13 +25,14 @@ class App extends Component {
 
     // Condition that checks if the imgage clicked has a property clicked that is true or false
     if(this.state.clickedPicsArr.includes(id)) {
+      // Checks if score beat highscore
       if(this.state.score > this.state.highScore) {
         this.setState({highScore: this.state.score});
       }
       this.setState({message: "Wrong Guess"});
-      this.shufflePics(this.state.pictureObj);
       this.setState({score: 0});
       this.setState({clickedPicsArr: []});
+
     } else {
       this.setState({score: this.state.score + 1});
       this.setState({message: "Correct Keep Going"});
